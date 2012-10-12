@@ -1,5 +1,8 @@
 SHELL=/bin/sh
 
+# if you do not have mysql libraries or do not want
+# to use mysql, you just can comment the two following
+# lines
 CFLAGS=-DUSE_MYSQL
 LIBS=-lmysqlclient
 
@@ -12,7 +15,7 @@ all: teleinfo
 
 # ===== Compile
 teleinfo.o: teleinfo.c
-	$(CC) $(CFLAGS) $(BIGFILES) -c teleinfo.c
+	$(CC) $(CFLAGS) -c teleinfo.c
 
 # ===== Link
 teleinfo: teleinfo.o 
