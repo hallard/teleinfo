@@ -1,8 +1,6 @@
 Téléinfo Broadcast
 ==================
 
-Transmission des trames teleinformation sur le réseau local
-
 Ce programme qui permet de récupérer les trames téléinfo reçue par la liaison série d'un ordinateur (ou autre périphérique) puis de les envoyer (broadcaster) sur un reseau local. de ce fait, il est possible de récupérer ces informations sur une (ou même plusieurs machines) pour en faire le traitement souhaité.
  
 Ce programme est entièrement développé pour mes besoins personnels, il serait donc illusoire de penser pouvoir l'utiliser en l'état à d'autres fin sans découvrir de bugs ou des manques de fonctionnalités. Néamoins, je pense qu'il peut servir de base et je peux aider si vous avez des questions.
