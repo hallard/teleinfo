@@ -16,3 +16,14 @@ Le fonctionnement est très simple, et peut être distingué en deux modes :
 
  
   - Le mode client, c'est à dire qu'il écoute sur le réseau local une trame UDP (donc envoyée par de daemon) puis si celle-ci est valide, fait un traitement associé. Dans mon cas, soit on affiche la trame soit on stocke les données dans une base MySQL avec les valeurs reçues (le nom des champs de la table doit être le même que les champs de la trame reçue, donc un champs ADCO, …).
+
+Installation
+------------
+
+Récupérez les deux fichiers teleinfo.c et Makefile et les positionner dans le même dossier puis allez dans ce dossier et tapez la commande
+make
+
+Vous pouvez complètement supprimer la partie mysql si vous le souhaitez, il suffit de commenter les deux lignes
+CFLAGS=..
+LDFLAGS=..
+dans le fichier Makefile
