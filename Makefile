@@ -3,8 +3,8 @@ SHELL=/bin/sh
 # if you do not have mysql libraries or do not want
 # to use mysql, you just can comment the two following
 # lines
-CFLAGS=-DUSE_MYSQL
-LIBS=-lmysqlclient
+#CFLAGS=-DUSE_MYSQL
+#LIBS=-lmysqlclient
 
 # Where you want it installed when you do 'make install'
 PREFIX=/usr/local

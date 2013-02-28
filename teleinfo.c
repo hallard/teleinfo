@@ -1,13 +1,15 @@
 /* ======================================================================
 Program : teleinfo
 Purpose : grab teleinformation from serial line then write to MySql or Net
-Version : 1.01
+Version : 1.05
 Author  : (c) Charles-Henri Hallard
 Comments: some code grabbed from picocom and other from teleinfo
 	: You can use or distribute this code unless you leave this comment
 	: too see thos code correctly indented, please use Tab values of 2
 ====================================================================== */
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
@@ -34,9 +36,9 @@ Comments: some code grabbed from picocom and other from teleinfo
 #define PRG_NAME              "teleinfo"
 
 #ifdef USE_MYSQL
-  #define PRG_VERSION     "1.03 (mysql)"
+  #define PRG_VERSION     "1.05 (mysql)"
 #else
-  #define PRG_VERSION     "1.03 (nosql)"
+  #define PRG_VERSION     "1.05 (nosql)"
 #endif
 #define PRG_DIR			"/usr/local/bin" 				// Directory where we are when in daemon mode
 
@@ -67,7 +69,7 @@ Comments: some code grabbed from picocom and other from teleinfo
 
 enum parity_e 		{  P_NONE, 	P_EVEN, 	 P_ODD };
 enum flowcntrl_e 	{ FC_NONE, 	FC_RTSCTS, FC_XONXOFF };
-enum mode_e 			{ MODE_SEND, 	MODE_RECEIVE,	MODE_MYSQL };
+enum mode_e 			{ MODE_SEND, 	MODE_RECEIVE,	MODE_MYSQL, MODE_TEST };
 
 // Config Option
 struct 
@@ -611,6 +613,8 @@ int tlf_check_frame( char * pframe)
 	char * ptok; 
 	char * pvalue; 
 	char * pcheck;
+	char	buff[TELEINFO_BUFSIZE];
+
 #ifdef USE_MYSQL
 	MYSQL  mysql; 
 	static char mysql_field[ 512];
@@ -618,18 +622,21 @@ int tlf_check_frame( char * pframe)
 	static char mysql_job[1024];
 #endif
 	int i, frame_err , len;
-	
+
 	i=0;
 	len = strlen(pframe); 
+	
+	strncpy( buff, pframe, len+1);
+
+	pstart = &buff[0];
+	pend   = pstart + len;
 
 	if (opts.verbose)
 	{
-		fprintf(stdout, "------------------- Received %d char Frame.%s\n------------------- ", len, pframe);
+		fprintf(stdout, "------------------- Received %d char Frame.%s\n-------------------", len, buff);
 		fflush(stdout);
 	}	
 	
-	pstart = pframe;
-	pend   = pframe+len;
 
 #ifdef USE_MYSQL	
 	// need to put in mysql
@@ -850,10 +857,11 @@ int usage( char * name)
 
 	printf("%s\n", PRG_NAME );
 	printf("Usage is: %s --mode s|r|y [options] <tty device>\n", PRG_NAME);
-	printf("  --<m>mode  :  s (=send) | r (=receive) | y (=mysql)\n");
+	printf("  --<m>mode  :  s (=send) | r (=receive) | y (=mysql) | t (=test)\n");
 	printf("                send continuiously the teleinfo frame to network\n");
 	printf("                receive one teleinfo frame from network and display it\n");
 	printf("                receive one teleinfo frame from network and send to mysql database\n");
+	printf("                test : display teleinfo received from serial\n");
 	printf("Options are:\n");
 	printf("  --no<l>ock   : do not create serial lock file\n");
 	printf("  --<v>erbose  : speak more to user\n");
@@ -944,6 +952,11 @@ void parse_args(int argc, char *argv[])
 					case 'S':
 						opts.mode = MODE_SEND;
 						opts.mode_str = "send";
+					break;
+					case 't':
+					case 'T':
+						opts.mode = MODE_TEST;
+						opts.mode_str = "test";
 					break;
 					case 'r':
 					case 'R':
@@ -1076,7 +1089,10 @@ int main(int argc, char **argv)
 	unsigned char c;
 	char	rcv_buff[TELEINFO_BUFSIZE];
 	int		rcv_idx;
-   
+  char time_str[200];
+  time_t t;
+  struct tm *tmp;
+
 	rcv_idx = 0;
 	g_fd_teleinfo = 0; 
 	g_tlf_sock = 0;
@@ -1137,22 +1153,26 @@ int main(int argc, char **argv)
 			clean_exit( EXIT_SUCCESS );
 	}
 
-	// Send mode need to broadcast serial frame
-	if ( opts.mode == MODE_SEND )
+	// Send mode need to broadcast serial frame, test mode just display
+	if ( opts.mode == MODE_SEND || opts.mode == MODE_TEST )
 	{
 		g_fd_teleinfo = tlf_init_serial();
 
-  	broadcast = 1; //might need '1' and char type
-  	
-  	if (setsockopt(g_tlf_sock, SOL_SOCKET, SO_BROADCAST, &broadcast, sizeof(broadcast)) == -1)
-    	log_syslog(stderr, "Could not allow broadcasting\n");
-  	else 
-    	log_syslog(stderr, "Broadcast routing enabled\n");
-  
-  	client.sin_family = AF_INET;     // host byte order
-  	client.sin_port = htons(opts.netport); 
-  	client.sin_addr.s_addr = inet_addr(TELEINFO_NETWORK);
-  	memset(client.sin_zero, '\0', sizeof (client.sin_zero));
+			// Test mode to need send frame
+		if ( opts.mode == MODE_SEND )
+		{
+			broadcast = 1; //might need '1' and char type
+			
+			if (setsockopt(g_tlf_sock, SOL_SOCKET, SO_BROADCAST, &broadcast, sizeof(broadcast)) == -1)
+				log_syslog(stderr, "Could not allow broadcasting\n");
+			else 
+				log_syslog(stderr, "Broadcast routing enabled\n");
+		
+			client.sin_family = AF_INET;     // host byte order
+			client.sin_port = htons(opts.netport); 
+			client.sin_addr.s_addr = inet_addr(TELEINFO_NETWORK);
+			memset(client.sin_zero, '\0', sizeof (client.sin_zero));
+		}
  		
 	}
 	
@@ -1203,6 +1223,7 @@ int main(int argc, char **argv)
 					bzero(&rcv_buff[rcv_idx], TELEINFO_BUFSIZE-rcv_idx);
 
 					// need to send frame, no check, it will be done on the other side
+					// by the receive mode of this program
 					if (opts.mode == MODE_SEND)
 					{
 						if (opts.verbose)
@@ -1218,6 +1239,23 @@ int main(int argc, char **argv)
 						// If frame  ok
 						if ( (length = tlf_check_frame(rcv_buff)) > 0 )
 						{
+							t = time(NULL);
+							tmp = localtime(&t);
+							if (tmp) 
+							{
+								if (strftime(time_str, sizeof(time_str), "%a, %d %b %Y %T" , tmp) == 0) 
+								{
+									strcpy( time_str, "No Time");
+								}
+							}
+
+							// good full frame received, do whatever you want here
+							fprintf(stdout, "==========================\nTeleinfo Frame of %d char\n%s\n==========================%s\n",
+															strlen(rcv_buff), time_str, rcv_buff );
+
+							// ..
+							// ..
+							// ..
 						}
 					}
 				}
