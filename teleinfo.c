@@ -1,6 +1,6 @@
 /* ======================================================================
 Program : teleinfo
-Version : 1.07
+Version : 1.08
 Purpose : send/recevice teleinformation from severals devices then can 
           - write to MySql
           - write to Emoncms
@@ -175,6 +175,7 @@ struct
 // Statistics and error structure
 struct 
 {
+	unsigned long framesent;
 	unsigned long frame;
 	unsigned long badchecksum;
 	unsigned long frameformaterror;
@@ -282,7 +283,8 @@ void show_stats(void)
 	
 	log_syslog(stderr, "\n"PRG_NAME" "PRG_VERSION_NUMBER" Statistics\n");
 	log_syslog(stderr, "==========================\n");
-	log_syslog(stderr, "Total Frames        : %ld\n", stats.frame);
+	log_syslog(stderr, "Frames Sent         : %ld\n", stats.framesent);
+	log_syslog(stderr, "Frames checked      : %ld\n", stats.frame);
 	log_syslog(stderr, "Frames OK           : %ld\n", stats.frameok);
 	log_syslog(stderr, "Checksum errors     : %ld\n", stats.badchecksum);
 	log_syslog(stderr, "Frame format Errors : %ld\n", stats.frameformaterror);
@@ -2126,20 +2128,24 @@ int main(int argc, char **argv)
 						{
 							if (opts.verbose)
 								log_syslog(stderr, "Sending frame size %d to network\n", rcv_idx);
+							
 								
 							sendto(g_tlf_sock, rcv_buff, rcv_idx, 0, (struct sockaddr *) &client,  sizeof(struct sockaddr));
 							client.sin_port = htons(opts.netport+1); 
 							sendto(g_tlf_sock, rcv_buff, rcv_idx, 0, (struct sockaddr *) &client,  sizeof(struct sockaddr));
 							client.sin_port = htons(opts.netport); 
 
+							// Update stats
+							stats.framesent++;
+
 							// Do we need to do other job ?
-							#if (defined USE_EMONCS && defined USE_MYSQL)
+							#if defined USE_EMONCMS && defined USE_MYSQL
 								if (opts.emoncms || opts.mysql)
 									tlf_check_frame(rcv_buff);
-							#elseif defined USE_EMONCS
+							#elif defined USE_EMONCMS
 								if (opts.emoncms )
 									tlf_check_frame(rcv_buff);
-							#elseif defined USE_MYSQL
+							#elif defined USE_MYSQL
 								if (opts.mysql)
 									tlf_check_frame(rcv_buff);
 							#endif
