@@ -7,6 +7,7 @@ Purpose : send/recevice teleinformation from severals devices then can
           - send UDP frame over network
 
 Author  : (c) Charles-Henri Hallard
+          http://hallard.me
 Comments: some code grabbed from picocom and other from teleinfo
 	: You can use or distribute this code unless you leave this comment
 	: too see this code correctly indented, please use Tab values of 2
