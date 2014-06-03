@@ -251,13 +251,13 @@ void log_syslog( FILE * stream, const char *format, ...)
 
   // Write to logfile
   openlog( PRG_NAME, LOG_PID|LOG_CONS, LOG_USER);
-  syslog(LOG_INFO, tmpbuff);
+  syslog(LOG_INFO, "%s", tmpbuff);
   closelog();
   
   // stream passed ? write also to it
   if (stream && opts.verbose && !opts.daemon ) 
   {
-    fprintf(stream, tmpbuff);
+    fprintf(stream, "%s", tmpbuff);
     //fprintf(stream, "\n");
     fflush(stream);
   }
@@ -386,7 +386,7 @@ void fatal (const char *format, ...)
 
   // Write to logfile
   openlog( PRG_NAME, LOG_PID | LOG_CONS, LOG_USER);
-  syslog(LOG_INFO, tmpbuff);
+  syslog(LOG_INFO, "%s", tmpbuff);
   closelog();
 
   fprintf(stderr,"\r\nFATAL: %s \r\n", tmpbuff );
@@ -2167,7 +2167,7 @@ int main(int argc, char **argv)
 
                 // good full frame received, do whatever you want here
                 fprintf(stdout, "==========================\nTeleinfo Frame of %d char\n%s\n==========================%s\n",
-                                strlen(rcv_buff), time_str, rcv_buff );
+                                (int) strlen(rcv_buff), time_str, rcv_buff );
 
                 // ..
                 // ..
