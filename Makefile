@@ -1,5 +1,7 @@
 SHELL=/bin/sh
 
+# Teleinfo Makefile version 1.0.8
+
 # if you do not want teleinfo log to mysql database you can remove 
 # the link with mysql client library
 # could be usfull because installing mysqlclient library can be quite

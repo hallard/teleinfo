@@ -1,6 +1,6 @@
 /* ======================================================================
 Program : teleinfo
-Version : 1.08
+Version : 1.0.8
 Purpose : send/recevice teleinformation from severals devices then can 
           - write to MySql
           - write to Emoncms
@@ -48,7 +48,7 @@ Comments: some code grabbed from picocom and other from teleinfo
 // Directory where we are when in daemon mode
 #define PRG_DIR             "/usr/local/bin" 
 #define PRG_NAME            "teleinfo"
-#define PRG_VERSION_NUMBER  "1.08"
+#define PRG_VERSION_NUMBER  "1.0.8"
 #define PRG_CFG             "/etc/teleinfo.conf"
 
 #if (defined USE_EMONCS && defined USE_MYSQL)
