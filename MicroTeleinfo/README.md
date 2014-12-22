@@ -16,13 +16,12 @@ License
 
 
 **Schematic**  
-![schematic](https://raw.github.com/hallard/teleinfo/MicroTeleinfo/master/MicroTeleinfo-sch.png)
-![schematic](https://raw.github.com/hallard/teleinfo/master/MicroTeleinfo/MicroTeleinfo-sch.png
+![schematic](https://raw.github.com/hallard/teleinfo/master/MicroTeleinfo/MicroTeleinfo-sch.png)
 
 **Board**  
 ![board]( https://raw.github.com/hallard/teleinfo/master/MicroTeleinfo/MicroTeleinfo-brd.png )
 
-![top](https://raw.github.com/hallard/teleinfo/master/MicroTeleinfo/MicroTeleinfo-top.png)&nbsp;&nbsp;![bottom](https://raw.github.com/hallard/teleinfo/master/MicroTeleinfo/MicroTeleinfo-bottom.png)
+![top](https://raw.github.com/hallard/teleinfo/master/MicroTeleinfo/MicroTeleinfo-top.png)&nbsp;&nbsp;![bottom](https://raw.github.com/hallard/teleinfo/master/MicroTeleinfo/MicroTeleinfo-bot.png)
 
 
 [4]: http://hallard.me
