@@ -7,7 +7,13 @@ Suivez mes nouveautés et autres projets sur mon [blog][4]
 Installation et configuration
 ==============================
 
-Attention, carte non testée mais vu la simplicité du PCB çà devrait être bon, je validerais dès que j'aurais reçu les cartes de test.
+Attention, carte non testée mais vu la simplicité du PCB çà devrait être bon, je validerais dès les cartes de test reçues.
+
+La led est au choix (en CMS ou à trous) car dans certains boitiers je ne suis pas sur qu'une led 3MM loge, du coup vous avez le choix ou non de l'installer. Vous pouvez le pas la mettre, c'est facultatif pour le visuel. Si vous ne mettez pas la LED R2 ne sert à rien.
+
+Je suis certain que la résistance R1 ne sert à rien, je me souviens l'avoir enlevée sur la carte [ArduiPi][2] car à l'epoque avec une 10K le signal était trop faible pour l'entrée RX du Pi et çà ne fonctionnait pas. En l'enlevant tout fonctionnait. Peut être qu'avec une 3.3K çà fonctionne aussi.
+
+Je mettrais le programme [Teleinfo Broacast][3] à jour pour faire clignoter la LED quand une trame est reçue.
 
 Tout est documenté sur la page dédié [teleinfo][5] de mon blog 
 
@@ -18,13 +24,6 @@ License
 
 Conception
 ==========
-
-La led est au choix (en CMS ou à trous) car dans certains boitiers je ne suis pas sur qu'une led 3MM loge, du coup vous avez le choix ou non de l'installer. Vous pouvez le pas la mettre, c'est facultatif pour le visuel.
-
-Je suis certain que la résistance R1 ne sert à rien, je me souviens l'avoir enlevée sur la carte [ArduiPi][2] car à l'epoque avec une 10K le signal était trop faible pour l'entrée RX du Pi. en l'enlevant tout fonctionnait. Peut être avec une 3.3K çà fonctionne aussi.
-
-
-Je mettrais le programme [Teleinfo Broacast][3] à jour pour faire clignoter la LED quand une trame est reçue.
 
 
 **Schémas**  
