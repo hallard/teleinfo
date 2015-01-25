@@ -7,6 +7,8 @@ Suivez mes nouveautés et autres projets sur mon [blog][4]
 Installation et configuration
 ==============================
 
+Attention, carte non testée mais vu la simplicité du PCB çà devrait être bon, je validerais dès que j'aurais reçu les cartes de test.
+
 Tout est documenté sur la page dédié [teleinfo][5] de mon blog 
 
 License
@@ -18,12 +20,13 @@ Conception
 ==========
 
 **Schémas**  
-![schematic](https://raw.github.com/hallard/teleinfo/master/PiTInfo/PiTInfo-sch.png)
+![schematic](https://raw.github.com/hallard/teleinfo/master/PiTlnfo/PiTInfo-sch.png)
 
-![board]( https://raw.github.com/hallard/teleinfo/master/PiTInfo/PiTInfo-brd.png )
+![board]( https://raw.github.com/hallard/teleinfo/master/PiTlnfo/PiTInfo-brd.png )
 
 **Circuit Imprimé**  
-![top](https://raw.github.com/hallard/teleinfo/master/PiTInfo/PiTInfo-top.png)&nbsp;&nbsp;![bottom](https://raw.github.com/hallard/teleinfo/master/PiTInfo/PiTInfo-bot.png)
+![top](https://raw.github.com/hallard/teleinfo/master/PiTlnfo/PiTInfo-top.png)&nbsp;&nbsp;![bottom](https://raw.github.com/hallard/teleinfo/master/PiTlnfo/PiTInfo-bot.png)
+
 
 
 [4]: http://hallard.me
