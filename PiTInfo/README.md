@@ -20,12 +20,12 @@ Conception
 ==========
 
 **Schémas**  
-![schematic](https://raw.github.com/hallard/teleinfo/master/PiTlnfo/PiTInfo-sch.png)
+![schematic](https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-sch.png)
 
-![board]( https://raw.github.com/hallard/teleinfo/master/PiTlnfo/PiTInfo-brd.png )
+![board]( https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-brd.png )
 
 **Circuit Imprimé**  
-![top](https://raw.github.com/hallard/teleinfo/master/PiTlnfo/PiTInfo-top.png)&nbsp;&nbsp;![bottom](https://raw.github.com/hallard/teleinfo/master/PiTlnfo/PiTInfo-bot.png)
+![top](https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-top.png)&nbsp;&nbsp;![bottom](https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-bot.png)
 
 
 
