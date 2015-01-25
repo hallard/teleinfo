@@ -19,6 +19,14 @@ License
 Conception
 ==========
 
+La led est au choix (en CMS ou à trous) car dans certains boitiers je ne suis pas sur qu'une led 3MM loge, du coup vous avez le choix ou non de l'installer. Vous pouvez le pas la mettre, c'est facultatif pour le visuel.
+
+Je suis certain que la résistance R1 ne sert à rien, je me souviens l'avoir enlevée sur la carte [ArduiPi][2] car à l'epoque avec une 10K le signal était trop faible pour l'entrée RX du Pi. en l'enlevant tout fonctionnait. Peut être avec une 3.3K çà fonctionne aussi.
+
+
+Je mettrais le programme [Teleinfo Broacast][3] à jour pour faire clignoter la LED quand une trame est reçue.
+
+
 **Schémas**  
 ![schematic](https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-sch.png)
 
@@ -27,7 +35,7 @@ Conception
 **Circuit Imprimé**  
 ![top](https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-top.png)&nbsp;&nbsp;![bottom](https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-bottom.png)
 
-
-
+[2]: http://hallard.me/arduipi-the-shield-that-brings-arduino-to-raspberry-pi/
+[3]: http://hallard.me/teleinfo-emoncms/
 [4]: http://hallard.me
 [5]: http://hallard.me/teleinfo/
