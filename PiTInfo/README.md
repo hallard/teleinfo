@@ -16,6 +16,9 @@ La led est au choix (en CMS ou à trous) car dans certains boitiers je ne suis p
 
 <s>Je mettrais le programme [Teleinfo Broacast][3] à jour pour faire clignoter la LED quand une trame est reçue.</s> Tout se fait maintenant avec Node Red, c'est documenté sur la page dédié [PiTinfo][1] de mon blog.
 
+Vous pouvez acheter le montage tout fait sur [Tindie][6]
+
+
 License
 =======
 
@@ -38,3 +41,4 @@ Conception
 [3]: http://hallard.me/teleinfo-emoncms/
 [4]: http://hallard.me
 [5]: http://hallard.me/teleinfo/
+[6]: https://www.tindie.com/products/Hallard/pitinfo/
