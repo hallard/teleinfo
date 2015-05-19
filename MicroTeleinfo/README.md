@@ -7,7 +7,9 @@ Suivez mes nouveautés et autres projets sur mon [blog][4]
 Installation et configuration
 ==============================
 
-Tout est documenté sur la page dédié [teleinfo][5] de mon blog 
+Tout est documenté sur la page dédié [teleinfo][5] de mon blog.
+
+Vous pouvez acheter le montage terminé sur [Tindie][6]
 
 License
 =======
@@ -28,3 +30,4 @@ Conception
 
 [4]: http://hallard.me
 [5]: http://hallard.me/teleinfo/
+[6]: https://www.tindie.com/products/Hallard/micro-teleinfo/
