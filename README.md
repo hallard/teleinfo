@@ -2,12 +2,12 @@
 Repository dédié à la Téléinformation
 =====================================
 
-Ce dossier à la base était pour le programme téléinfo broadcast, mais il est devenu au fur et à mesure un peu le fourre tout de mes projets concernant la téléinformation.
-Dorénavant, je crée des repos séparés pour les nouveeau projet 
+Ce dossier à la base était pour le programme téléinfo broadcast et emoncms, mais il est devenu au fur et à mesure un peu le fourre tout de mes projets concernant la téléinformation.
+Dorénavant, je crée des repos séparés pour les nouveaux projets 
 
 Dans ce repo vous trouverez :
-- Le dongle [Micro Teleinfo](https://github.com/hallard/teleinfo/tree/master/MicroTeleinfo)
-- Le shield Raspberry [Pi PiTinfo](https://github.com/hallard/teleinfo/tree/master/PiTInfo)
+- Le dongle [Micro Teleinfo](https://github.com/hallard/teleinfo/tree/master/MicroTeleinfo) ainsi que les liens vers la documentation
+- Le shield Raspberry [Pi PiTinfo](https://github.com/hallard/teleinfo/tree/master/PiTInfo) ainsi que les liens vers la documentation
 
 Et le nouveau projet Teleinfo Wifi Serveur dans un repo dédié
 - [WifInfo](https://github.com/hallard/WifInfo)
