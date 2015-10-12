@@ -1,23 +1,24 @@
 Pi Téléinfo
 ===========
-Shield Teleinfo pour Raspberry PI permettant de récupérer les trames téléinformation
 
-Suivez mes nouveautés et autres projets sur mon [blog][4] 
+Nouvelle version V1.2 avec l'étage à transistor FET afin de pallier à tout problème de réception de la téléinformation. 
+
+Consulter l'article [dédié][10] sur mon blog.
+
 
 Installation et configuration
 ==============================
 
-<s>Attention, carte non testée mais vu la simplicité du PCB çà devrait être bon, je validerais dès les cartes de test reçues</s>.
-Les cartes sont parfaitement fonctionnelles
+La led ainsi que le transistor sont au choix (en CMS ou à trous sur la version non SMD) car dans certains boitiers je ne suis pas sur qu'une led 3MM loge, du coup vous avez le choix ou non de l'installer. Vous pouvez ne pas la mettre, c'est facultatif pour le visuel. Si vous ne mettez pas la LED la resistance 470 Ohm ne sert à rien.
 
-La led est au choix (en CMS ou à trous) car dans certains boitiers je ne suis pas sur qu'une led 3MM loge, du coup vous avez le choix ou non de l'installer. Vous pouvez le pas la mettre, c'est facultatif pour le visuel. Si vous ne mettez pas la LED R2 ne sert à rien.
+Veuillez consulter les articles suivants pour plus d'information
 
-<s>Je suis certain que la résistance R1 ne sert à rien, je me souviens l'avoir enlevée sur la carte [ArduiPi][2] car à l'epoque avec une 10K le signal était trop faible pour l'entrée RX du Pi et çà ne fonctionnait pas. En l'enlevant tout fonctionnait. Peut être qu'avec une 3.3K çà fonctionne aussi.</s> Je confirme, R1 ne sert pas.
-
-<s>Je mettrais le programme [Teleinfo Broacast][3] à jour pour faire clignoter la LED quand une trame est reçue.</s> Tout se fait maintenant avec Node Red, c'est documenté sur la page dédié [PiTinfo][1] de mon blog.
+* [Téléinfo, Emoncms avec Node Red sur Raspberry PI][1]
+* [Démystifier le décodage Téléinformation et l’optocoupleur SFH6206][8]
+* [Teleinfo Broadcast comptatible avec Emoncms][3]
+* [Gestion de la Teleinfo avec un Raspberry Pi et une carte ArduiPi][9]
 
 Vous pouvez acheter le montage tout fait sur [Tindie][6]
-
 
 License
 =======
@@ -27,14 +28,24 @@ License
 Conception
 ==========
 
+**Schémas V1.2 SMD**  
+![schematic](https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-V1.2-smd-sch.png)
 
-**Schémas**  
-![schematic](https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-sch.png)
+![board]( https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-V1.2-smd-brd.png )
 
-![board]( https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-brd.png )
+**Circuit Imprimé V1.2 SMD**  
+![top](https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-V1.2-smd-top.png)&nbsp;&nbsp;![bottom](https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-V1.2-smd-bottom.png)
 
-**Circuit Imprimé**  
-![top](https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-top.png)&nbsp;&nbsp;![bottom](https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-bottom.png)
+**Schémas V1.2 trous traversants **  
+![schematic](https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-V1.2-sch.png)
+
+![board]( https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-V1.2-brd.png )
+
+**Circuit Imprimé V1.2 version trous traversants**  
+![top](https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-V1.2-top.png)&nbsp;&nbsp;![bottom](https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-V1.2-bottom.png)
+
+
+Suivez mes nouveautés et autres projets sur mon [blog][4] 
 
 [1]: http://hallard.me/pitinfo/
 [2]: http://hallard.me/arduipi-the-shield-that-brings-arduino-to-raspberry-pi/
@@ -42,3 +53,7 @@ Conception
 [4]: http://hallard.me
 [5]: http://hallard.me/teleinfo/
 [6]: https://www.tindie.com/products/Hallard/pitinfo/
+[7]: http://hallard.me/teleinfo/
+[8]: http://hallard.me/demystifier-la-teleinfo/
+[9]: http://hallard.me/gestion-de-la-teleinfo-avec-un-raspberry-pi-et-une-carte-arduipi/
+[10]: http://hallard.me/pitinfov12/
