@@ -34,7 +34,9 @@ Conception
 ![board]( https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-V1.2-smd-brd.png )
 
 **Circuit Imprimé V1.2 SMD**  
-![top](https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-V1.2-smd-top.png)&nbsp;&nbsp;![bottom](https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-V1.2-smd-bottom.png)
+<img src="https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-V1.2-smd-top.png" alt="Top" width="60%" height="60%">&nbsp;&nbsp;<img src="https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-V1.2-smd-bottom.png" alt="Bottom" width="60%" height="60%">     
+    
+    
 
 **Schémas V1.2 trous traversants **  
 ![schematic](https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-V1.2-sch.png)
@@ -42,9 +44,9 @@ Conception
 ![board]( https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-V1.2-brd.png )
 
 **Circuit Imprimé V1.2 version trous traversants**  
-![top](https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-V1.2-top.png)&nbsp;&nbsp;![bottom](https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-V1.2-bottom.png)
-
-
+<img src="https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-V1.2-top.png" alt="Top" width="60%" height="60%">&nbsp;&nbsp;<img src="https://raw.githubusercontent.com/hallard/teleinfo/master/PiTInfo/PiTlnfo-V1.2-bottom.png" alt="Bottom" width="60%" height="60%">      
+    
+    
 Suivez mes nouveautés et autres projets sur mon [blog][4] 
 
 [1]: http://hallard.me/pitinfo/
