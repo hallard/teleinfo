@@ -19,12 +19,25 @@ License
 Conception
 ==========
 
-**Schémas**  
+Nouvelle version V1.1 avec transistor MOSFET pour une meilleure compatibilité avec les compteurs.
+
+
+
+**Schémas V1.1**  
+![schematic](https://raw.github.com/hallard/teleinfo/master/MicroTeleinfo/MicroTeleinfo-V1.1-sch.png)
+
+![board]( https://raw.github.com/hallard/teleinfo/master/MicroTeleinfo/MicroTeleinfo-V1.1-brd.png )
+
+**Circuit Imprimé V1.1**  
+![top](https://raw.github.com/hallard/teleinfo/master/MicroTeleinfo/MicroTeleinfo-V1.1-top.png)&nbsp;&nbsp;![bottom](https://raw.github.com/hallard/teleinfo/master/MicroTeleinfo/MicroTeleinfo-V1.1-bot.png)
+
+
+**Schémas V1.0**  
 ![schematic](https://raw.github.com/hallard/teleinfo/master/MicroTeleinfo/MicroTeleinfo-sch.png)
 
 ![board]( https://raw.github.com/hallard/teleinfo/master/MicroTeleinfo/MicroTeleinfo-brd.png )
 
-**Circuit Imprimé**  
+**Circuit Imprimé V1.0**  
 ![top](https://raw.github.com/hallard/teleinfo/master/MicroTeleinfo/MicroTeleinfo-top.png)&nbsp;&nbsp;![bottom](https://raw.github.com/hallard/teleinfo/master/MicroTeleinfo/MicroTeleinfo-bot.png)
 
 
