@@ -811,25 +811,30 @@ int http_post( char * str_url )
     log_syslog(stderr, "Error while setting curl url %s : %s", str_url, curl_easy_strerror(res));
   else
   {
-    // Perform the request, res will get the return code 
-    if( (res = curl_easy_perform(g_pcurl)) != CURLE_OK)
+    if ( curl_easy_setopt(g_pcurl, CURLOPT_XOAUTH2_BEARER, opts.apikey) != CURLE_OK )
+      log_syslog(stderr, "Error while setting curl header : %s", curl_easy_strerror(res));
+    else 
     {
-      log_syslog(stderr, "Error on http request %s : %s", str_url, curl_easy_strerror(res));
-      stats.curl_posterror++;
-      if (res == CURLE_OPERATION_TIMEDOUT)
-        stats.curl_timeout++;
-    }
-    else
-    { 
-      // return data received 
-      if (opts.verbose)
+      // Perform the request, res will get the return code 
+      if( (res = curl_easy_perform(g_pcurl)) != CURLE_OK)
+      {
+        log_syslog(stderr, "Error on http request %s : %s", str_url, curl_easy_strerror(res));
+        stats.curl_posterror++;
+        if (res == CURLE_OPERATION_TIMEDOUT)
+          stats.curl_timeout++;
+      }
+      else
+      { 
+        // return data received 
+        if (opts.verbose)
         log_syslog(stdout, "http_post %s ==> '%s'\n", str_url, http_buffer);  
         
-      // emoncms returned string "ok", all went fine
-      if (strcmp(http_buffer, "ok") == 0 )
-      {
-        retcode = true;
-        stats.curl_postok++;
+        // emoncms returned string "ok", all went fine
+        if (strcmp(http_buffer, "ok") == 0 )
+        {
+          retcode = true;
+          stats.curl_postok++;
+        }
       }
     }
   }
@@ -1153,9 +1158,9 @@ int tlf_check_frame( char * pframe)
   {
     // Prepare emoncms post
     if ( opts.node )
-      sprintf(emoncms_url, "%s?node=%d&apikey=%s&json={", opts.url, opts.node, opts.apikey);
+      sprintf(emoncms_url, "%s?node=%d&json={", opts.url, opts.node);
     else
-      sprintf(emoncms_url, "%s?apikey=%s&json={", opts.url, opts.apikey);
+      sprintf(emoncms_url, "%s?json={", opts.url);
 
     //if ( opts.verbose )
     //  log_syslog(stdout, "\n%s\n", emoncms_url);
