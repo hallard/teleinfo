@@ -811,6 +811,8 @@ int http_post( char * str_url )
     log_syslog(stderr, "Error while setting curl url %s : %s", str_url, curl_easy_strerror(res));
   else
   {
+    if (curl_easy_setopt(g_pcurl, CURLOPT_HTTPAUTH, CURLAUTH_BEARER) != CURLE_OK )
+      log_syslog(stderr, "Error while setting curl header : %s", curl_easy_strerror(res)); 
     if ( curl_easy_setopt(g_pcurl, CURLOPT_XOAUTH2_BEARER, opts.apikey) != CURLE_OK )
       log_syslog(stderr, "Error while setting curl header : %s", curl_easy_strerror(res));
     else 
