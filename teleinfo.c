@@ -1007,9 +1007,9 @@ void tlf_treat_label( char * plabel, char * pvalue)
   {
     if (strcmp(plabel, "OPTARIF")==0 )
     {
-      // L'option tarifaire choisie (Groupe "OPTARIF") est cod�e sur 4 caract�res alphanum�riques 
-      /* J'ai pris un nombre arbitraire cod� dans l'ordre ci-dessous
-      je mets le 4eme char � 0, trop de possibilit�s
+      // L'option tarifaire choisie (Groupe "OPTARIF") est codée sur 4 caractères alphanumériques 
+      /* J'ai pris un nombre arbitraire codé dans l'ordre ci-dessous
+      je mets le 4eme char à 0, trop de possibilités
       BASE => Option Base. 
       HC.. => Option Heures Creuses. 
       EJP. => Option EJP. 
@@ -1025,15 +1025,15 @@ void tlf_treat_label( char * plabel, char * pvalue)
     }
     else if (strcmp(plabel, "HHPHC")==0 )
     {
-      // L'horaire heures pleines/heures creuses (Groupe "HHPHC") est cod� par un caract�re A � Y 
+      // L'horaire heures pleines/heures creuses (Groupe "HHPHC") est codé par un caractère A à Y 
       // J'ai choisi de prendre son code ASCII
       int code = *pvalue;
       sprintf(pvalue, "%d", code);
     }
     else if (strcmp(plabel, "PTEC")==0 )
     {
-      // La p�riode tarifaire en cours (Groupe "PTEC"), est cod�e sur 4 caract�res 
-      /* J'ai pris un nombre arbitraire cod� dans l'ordre ci-dessous
+      // La période tarifaire en cours (Groupe "PTEC"), est codée sur 4 caractères
+      /* J'ai pris un nombre arbitraire codé dans l'ordre ci-dessous
       TH.. => Toutes les Heures. 
       HC.. => Heures Creuses. 
       HP.. => Heures Pleines. 
@@ -1237,7 +1237,7 @@ int tlf_check_frame( char * pframe)
               strcat(mysql_field, ",");
               strcat(mysql_field, ptok);
               
-              // Compteur Monophas� IINST et IMAX doivent �tre reli�s �
+              // Compteur Monophasé IINST et IMAX doivent être reliés
               // IINST1 et IMAX1 dans la base
               if (strcmp(ptok, "IINST")==0 || strcmp(ptok, "IMAX")==0)
                 strcat(mysql_field, "1");
@@ -1257,7 +1257,7 @@ int tlf_check_frame( char * pframe)
               {
                 strcat(emoncms_url, ptok);
                 
-                // Compteur Monophas� IINST et IMAX doivent �tre reli�s �
+                // Compteur Monophasé IINST et IMAX doivent être reliés
                 // IINST1 et IMAX1 
                 if (strcmp(ptok, "IINST")==0 || strcmp(ptok, "IMAX")==0)
                   strcat(emoncms_url, "1");
@@ -1306,7 +1306,7 @@ int tlf_check_frame( char * pframe)
       {
         MYSQL mysql;
         
-        // Ecrit donn�es dans base MySql.
+        // Ecrit données dans base MySql.
         sprintf(mysql_job, "INSERT INTO %s\n  (%s)\nVALUES\n  (%s);\n", opts.table, mysql_field, mysql_value);
         
         //if (opts.verbose)
