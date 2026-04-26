@@ -18,7 +18,13 @@ Veuillez consulter les articles suivants pour plus d'information
 * [Teleinfo Broadcast comptatible avec Emoncms][3]
 * [Gestion de la Teleinfo avec un Raspberry Pi et une carte ArduiPi][9]
 
-Vous pouvez acheter le montage tout fait sur [Tindie][6]
+Vous pouvez acheter le montage tout fait sur [Tindie][6] ou sur [Lectronz](https://lectronz.com/products/pitinfo).
+
+Les clients européens peuvent préférer commander sur Lectronz, qui propose des moyens de paiement supplémentaires et des prix en euros.
+
+<a href="https://lectronz.com/stores/hallard" alt="I sell on Lectronz"><img src="https://lectronz-images.b-cdn.net/static/badges/i-sell-on-lectronz-medium.png" /></a>
+<a href="https://lectronz.com/products/pitinfo" alt="Buy it on Lectronz"><img src="https://lectronz-images.b-cdn.net/static/badges/buy-it-on-lectronz-medium.png" /></a>
+<a href="https://www.tindie.com/products/Hallard/pitinfo/"><img src="https://d2ss6ovg47m0r5.cloudfront.net/badges/tindie-mediums.png" alt="I sell on Tindie" width="150" height="78"></a>
 
 License
 =======
