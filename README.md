@@ -1,3 +1,4 @@
+Update 12.10.2021: Moved APIKEY from url to Authorization Header
 
 Repository dédié à la Téléinformation
 =====================================
